@@ -1,4 +1,4 @@
-package com.czy.oa.enviroment.test;
+package com.czy.easyweibo.enviroment.test;
 
 import org.hibernate.SessionFactory;
 import org.junit.Test;

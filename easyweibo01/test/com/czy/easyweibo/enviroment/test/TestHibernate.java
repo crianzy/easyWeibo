@@ -1,4 +1,4 @@
-package com.czy.oa.enviroment.test;
+package com.czy.easyweibo.enviroment.test;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,6 +18,5 @@ public class TestHibernate {
 		session.getTransaction().commit();
 		session.close();
 	}
-
 
 }
