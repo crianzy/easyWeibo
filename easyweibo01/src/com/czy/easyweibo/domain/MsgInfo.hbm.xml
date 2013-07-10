@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.czy.easyweibo.domain">
+	<class name="User">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="msg_count"></property>
+		<property name="fans_count"></property>
+		<property name="follow_count"></property>
+		<property name="isOnline"></property>
+
+		<set name="fans" table="t_user_relation" >
+			<key column="followersId"></key>
+			<many-to-many class="User" column="fansId"></many-to-many>
+		</set>
+
+		<set name="followers" table="t_user_relation">
+			<key column="fansId"></key>
+			<many-to-many class="User" column="followersId"></many-to-many>
+		</set>
+		
+		<set name="msgIndex">
+			<key></key>
+			<one-to-many class="UserM"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
