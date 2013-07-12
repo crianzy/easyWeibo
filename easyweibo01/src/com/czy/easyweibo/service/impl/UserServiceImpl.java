@@ -12,19 +12,39 @@ import com.czy.easyweibo.service.UserService;
 public class UserServiceImpl extends BaseServiceImpl implements UserService {
 
 	@Resource
-	private UserDao userdao;
+	private UserDao userDao;
 
 	@Override
-	public User login(String username, String password) {
-		return null;
+	/**
+	 *  return 1 表示 登陆成功； 0 表示登陆失败
+	 */
+	public int login(String username, String password) {
+		if (userDao.checkLogin(username, password) != null) {
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
-	public void add(String username) {
-		User user = new User();
-		user.setUsername(username);
-		userdao.save(user);
+	public boolean regist(String username, String password) {
+		if(checkUsername(username)){
+			User user = new User();
+			user.setUsername(username);
+			user.setPassword(password);
+			userDao.save(user);
+			return true;
+		}
+		return false;
 	}
 
+	@Override
+	public boolean checkUsername(String username) {
+		if (username != null && username.length() > 4) {
+			if(!userDao.checkUsernameIsRepect(username)){
+				return true;
+			}
+		}
+		return false;
+	}
 
 }

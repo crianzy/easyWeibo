@@ -8,7 +8,7 @@
 		<id name="id">
 			<generator class="native"></generator>
 		</id>
-		<property name="username"></property>
+		<property name="username" unique="true"></property>
 		<property name="password"></property>
 		<property name="msg_count"></property>
 		<property name="fans_count"></property>
@@ -28,7 +28,11 @@
 		<set name="msgIndex">
 			<key column="userId"></key>
 			<one-to-many class="UserMsgIndex" />
-
+		</set>
+		
+		<set name="msgs">
+			<key column="autherId"></key>
+			<one-to-many class="MsgInfo"/>
 		</set>
 
 	</class>

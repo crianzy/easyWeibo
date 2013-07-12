@@ -2,6 +2,8 @@ package com.czy.easyweibo.domain;
 
 import java.io.Serializable;
 import java.security.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MsgInfo implements Serializable {
 
@@ -9,19 +11,29 @@ public class MsgInfo implements Serializable {
 
 	private Integer id;
 	private String content;
+
 	/** 消息类型 0：原创；1：评论；2转发 */
 	private Integer type;
+
 	/** 评论过数量（只增不减，删除评论不影响此值，可以作为评论多页显示的页码） */
 	private Integer commented_count;
+
 	/** 保留的评论数量 */
 	private Integer comment_count;
+
 	/** 转发过数量（只增不减，删除转发不影响此值，可以作为转发多页显示的页码） */
 	private Integer Transferred_count;
+
 	/** 保留的转发数量 */
 	private Integer Transfer_count;
+
 	/** 发布时间 */
 	private Timestamp time;
 
+	private User auther;
+	
+	private Set<UserMsgIndex> userMsgIndexs = new HashSet<UserMsgIndex>(); 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -85,5 +97,23 @@ public class MsgInfo implements Serializable {
 	public void setTime(Timestamp time) {
 		this.time = time;
 	}
+
+	public User getAuther() {
+		return auther;
+	}
+
+	public void setAuther(User auther) {
+		this.auther = auther;
+	}
+
+	public Set<UserMsgIndex> getUserMsgIndexs() {
+		return userMsgIndexs;
+	}
+
+	public void setUserMsgIndexs(Set<UserMsgIndex> userMsgIndexs) {
+		this.userMsgIndexs = userMsgIndexs;
+	}
+	
+	
 
 }

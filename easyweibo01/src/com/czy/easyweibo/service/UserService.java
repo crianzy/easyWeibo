@@ -1,10 +1,17 @@
 package com.czy.easyweibo.service;
 
-import com.czy.easyweibo.domain.User;
 
 public interface UserService {
 
-	public User login(String username, String password);
+	public int login(String username, String password);
 
-	public void add(String username);
+	public boolean regist(String username, String password);
+	
+	/**
+	 *  坚持用户名是否可用  可用则返回true 否则返回false
+	 * @param username
+	 * @return
+	 */
+	public boolean checkUsername(String username);
+	
 }

@@ -5,23 +5,24 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default">
 
         <default-action-ref name="index" />
 
-        <global-results>
-            <result name="error">/error.jsp</result>
-        </global-results>
-
-        <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception" result="error"/>
-        </global-exception-mappings>
-
         <action name="index" class="indexAction">
         	<result>/index.jsp</result>
+        </action>
+        
+        <action name="userAction_*" class="userAction" method="{1}">
+        	<result name="registSuccess">/success.jsp</result>
+        	<result name="loginSuccess">/success.jsp</result>
+        	<result name="toIndex" type="">/index.jsp</result>
+        </action>
+        
+        <action name="messageAction_*" class="messageAction" method="{1}">
         </action>
     </package>
 

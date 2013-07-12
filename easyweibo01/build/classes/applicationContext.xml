@@ -50,9 +50,6 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<!-- Struts action -->
-	<!-- <bean id="indexAction" class="com.czy.easyweibo.view.action.IndexAction">
-	</bean> -->
 	
 </beans>
 

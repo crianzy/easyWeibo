@@ -17,6 +17,7 @@ public class User implements Serializable {
 	private Set<User> fans = new HashSet<User>();
 	private Set<User> followers = new HashSet<User>();
 	private Set<UserMsgIndex> msgIndex = new HashSet<UserMsgIndex>();
+	private Set<MsgInfo> msgs = new HashSet<MsgInfo>();
 
 	public Integer getId() {
 		return id;
@@ -97,5 +98,14 @@ public class User implements Serializable {
 	public void setMsgIndex(Set<UserMsgIndex> msgIndex) {
 		this.msgIndex = msgIndex;
 	}
+
+	public Set<MsgInfo> getMsgs() {
+		return msgs;
+	}
+
+	public void setMsgs(Set<MsgInfo> msgs) {
+		this.msgs = msgs;
+	}
+	
 
 }

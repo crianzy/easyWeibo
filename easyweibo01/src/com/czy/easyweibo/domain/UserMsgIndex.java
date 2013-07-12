@@ -1,14 +1,15 @@
 package com.czy.easyweibo.domain;
 
+import java.io.Serializable;
 import java.security.Timestamp;
 
-public class UserMsgIndex {
+public class UserMsgIndex implements Serializable {
 
+	private static final long serialVersionUID = 5717398749155167281L;
 	private Integer id;
-	private Integer userId;
-	private Integer Auther_id;
-	private Integer Msg_id;
-	private Timestamp time_t;
+	private User user;
+	private MsgInfo msg;
+	private Timestamp time;
 
 	public Integer getId() {
 		return id;
@@ -18,36 +19,28 @@ public class UserMsgIndex {
 		this.id = id;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Integer getAuther_id() {
-		return Auther_id;
+	public MsgInfo getMsg() {
+		return msg;
 	}
 
-	public void setAuther_id(Integer auther_id) {
-		Auther_id = auther_id;
+	public void setMsg(MsgInfo msg) {
+		this.msg = msg;
 	}
 
-	public Integer getMsg_id() {
-		return Msg_id;
+	public Timestamp getTime() {
+		return time;
 	}
 
-	public void setMsg_id(Integer msg_id) {
-		Msg_id = msg_id;
-	}
-
-	public Timestamp getTime_t() {
-		return time_t;
-	}
-
-	public void setTime_t(Timestamp time_t) {
-		this.time_t = time_t;
+	public void setTime(Timestamp time) {
+		this.time = time;
 	}
 
 }

@@ -32,7 +32,6 @@ public class TestSpring {
 	@Test
 	public void testUserService() {
 		UserService userService = (UserService) ac.getBean("userServiceImpl");
-		userService.add("chenas");
 		System.out.println(userService);
 
 	}
